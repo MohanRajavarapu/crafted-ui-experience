@@ -4,9 +4,9 @@ import logo from "@/assets/logo.png";
 
 const Footer = () => {
   return (
-    <footer id="contact" className="bg-card/50 border-t border-border/50">
+    <footer id="contact" className="bg-card/50">
       {/* CTA Section */}
-      <div className="px-6 md:px-16 lg:px-24 py-20 md:py-32">
+      <div className="px-6 md:px-16 lg:px-24 py-16 md:py-20 lg:py-24">
         <div className="max-w-5xl mx-auto text-center space-y-10">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight">
             Ready to Transform Your Supply Chain?
@@ -34,11 +34,13 @@ const Footer = () => {
       </div>
 
       {/* Footer Content */}
-      <div className="px-6 md:px-16 lg:px-24 py-16 border-t border-border/50">
+      <div className="px-6 md:px-16 lg:px-24 py-16">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-4 gap-12 mb-16">
             <div className="space-y-6">
-              <img src={logo} alt="360 VortexAI" className="h-24 w-auto" style={{ background: 'hsl(210 30% 8%)', padding: '8px', borderRadius: '8px' }} />
+              <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="cursor-pointer inline-block">
+                <img src={logo} alt="360 VortexAI" className="h-24 w-auto p-2 rounded-lg" style={{ background: 'transparent' }} />
+              </a>
               <p className="text-muted-foreground leading-relaxed">
                 AI-powered demand forecasting and supply chain optimization for modern businesses
               </p>

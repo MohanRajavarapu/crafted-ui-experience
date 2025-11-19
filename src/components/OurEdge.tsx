@@ -25,9 +25,9 @@ const OurEdge = () => {
   ];
 
   return (
-    <section id="solutions" className="py-24 md:py-32 px-6 md:px-16 lg:px-24 bg-background">
+    <section id="solutions" className="py-16 md:py-24 lg:py-32 px-6 md:px-16 lg:px-24 bg-background">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-20 space-y-6">
+        <div className="text-center mb-12 md:mb-16 space-y-4">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
             Why Choose 360 VortexAI
           </h2>
