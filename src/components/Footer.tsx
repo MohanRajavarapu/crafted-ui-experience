@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Linkedin, Twitter, Mail } from "lucide-react";
+import { ArrowRight, Linkedin, Twitter, Mail, Facebook } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const Footer = () => {
@@ -8,24 +8,24 @@ const Footer = () => {
       {/* CTA Section */}
       <div className="px-6 md:px-16 lg:px-24 py-20 md:py-32">
         <div className="max-w-5xl mx-auto text-center space-y-10">
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight">
             Ready to Transform Your Supply Chain?
           </h2>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
             Join hundreds of companies making smarter decisions with AI
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-            <Button 
-              size="lg" 
-              className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8 py-6 h-auto font-semibold"
+            <Button
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground text-base px-6 py-4 h-auto font-semibold"
             >
               Get Started Free
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-2 border-border text-foreground hover:bg-card text-lg px-8 py-6 h-auto font-semibold"
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-2 border-border text-foreground hover:bg-card text-base px-6 py-4 h-auto font-semibold"
             >
               Schedule Demo
             </Button>
@@ -38,7 +38,7 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-4 gap-12 mb-16">
             <div className="space-y-6">
-              <img src={logo} alt="360 VortexAI" className="h-12 w-auto" />
+              <img src={logo} alt="360 VortexAI" className="h-24 w-auto" style={{ background: 'hsl(210 30% 8%)', padding: '8px', borderRadius: '8px' }} />
               <p className="text-muted-foreground leading-relaxed">
                 AI-powered demand forecasting and supply chain optimization for modern businesses
               </p>
@@ -48,6 +48,9 @@ const Footer = () => {
                 </a>
                 <a href="#" className="w-10 h-10 rounded-lg bg-muted hover:bg-primary/20 flex items-center justify-center transition-colors group">
                   <Twitter className="w-5 h-5 text-muted-foreground group-hover:text-primary" />
+                </a>
+                <a href="#" className="w-10 h-10 rounded-lg bg-muted hover:bg-primary/20 flex items-center justify-center transition-colors group">
+                  <Facebook className="w-5 h-5 text-muted-foreground group-hover:text-primary" />
                 </a>
                 <a href="#" className="w-10 h-10 rounded-lg bg-muted hover:bg-primary/20 flex items-center justify-center transition-colors group">
                   <Mail className="w-5 h-5 text-muted-foreground group-hover:text-primary" />
@@ -70,7 +73,6 @@ const Footer = () => {
               <ul className="space-y-4 text-muted-foreground">
                 <li><a href="#" className="hover:text-primary transition-colors">About Us</a></li>
                 <li><a href="#" className="hover:text-primary transition-colors">Careers</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Blog</a></li>
                 <li><a href="#contact" className="hover:text-primary transition-colors">Contact</a></li>
               </ul>
             </div>
@@ -79,7 +81,7 @@ const Footer = () => {
               <h3 className="font-semibold text-lg mb-6">Resources</h3>
               <ul className="space-y-4 text-muted-foreground">
                 <li><a href="#" className="hover:text-primary transition-colors">Documentation</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Help Center</a></li>
+                <li><a href="#contact" className="hover:text-primary transition-colors">Help Center</a></li>
                 <li><a href="#" className="hover:text-primary transition-colors">Community</a></li>
                 <li><a href="#" className="hover:text-primary transition-colors">Partners</a></li>
               </ul>

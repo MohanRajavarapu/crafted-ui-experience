@@ -28,10 +28,10 @@ const OurEdge = () => {
     <section id="solutions" className="py-24 md:py-32 px-6 md:px-16 lg:px-24 bg-background">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20 space-y-6">
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
             Why Choose 360 VortexAI
           </h2>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
             The most advanced demand forecasting platform on the market
           </p>
         </div>
