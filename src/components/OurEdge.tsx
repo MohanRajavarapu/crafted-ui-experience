@@ -1,66 +1,55 @@
-import { Cpu, TrendingUp, Smile, Zap } from "lucide-react";
-
-const edges = [
-  {
-    icon: Cpu,
-    title: "AI-Driven",
-    description: "Advanced machine learning algorithms continuously improve accuracy",
-  },
-  {
-    icon: TrendingUp,
-    title: "Scalable",
-    description: "Built to grow with your business from startup to enterprise",
-  },
-  {
-    icon: Smile,
-    title: "User-Friendly Interface",
-    description: "Intuitive design that requires minimal training",
-  },
-  {
-    icon: Zap,
-    title: "Actionable Intelligence",
-    description: "Clear insights that drive immediate business value",
-  },
-];
+import { Sparkles, TrendingUp, Shield, Rocket } from "lucide-react";
 
 const OurEdge = () => {
+  const edges = [
+    {
+      icon: Sparkles,
+      title: "AI-Powered Intelligence",
+      description: "Proprietary ML models trained on billions of data points across industries",
+    },
+    {
+      icon: TrendingUp,
+      title: "Proven Accuracy",
+      description: "99%+ forecast accuracy validated across Fortune 500 companies",
+    },
+    {
+      icon: Shield,
+      title: "Enterprise Security",
+      description: "SOC 2 Type II certified with bank-grade encryption and compliance",
+    },
+    {
+      icon: Rocket,
+      title: "Infinite Scale",
+      description: "From startups to global enterprises - built to handle any volume",
+    },
+  ];
+
   return (
-    <section className="py-20 md:py-32 px-6 md:px-12 lg:px-24 relative">
+    <section id="solutions" className="py-24 md:py-32 px-6 md:px-16 lg:px-24 bg-background">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            Our <span className="text-gradient">Edge</span>
+        <div className="text-center mb-20 space-y-6">
+          <h2 className="text-4xl md:text-6xl font-bold tracking-tight">
+            Why Choose 360 VortexAI
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            What sets 360 VortexAI apart from traditional forecasting solutions
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto">
+            The most advanced demand forecasting platform on the market
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {edges.map((edge, index) => (
-            <div
-              key={index}
-              className="relative group animate-fade-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div className="p-6 md:p-8 rounded-2xl border border-primary/20 bg-card hover:bg-card/80 transition-all h-full flex flex-col items-center text-center">
-                <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-6 group-hover:scale-110 group-hover:animate-glow-pulse transition-transform">
-                  <edge.icon className="h-8 w-8 text-primary-foreground" />
-                </div>
-                
-                <h3 className="text-lg md:text-xl font-semibold mb-3 text-foreground">
-                  {edge.title}
-                </h3>
-                
-                <p className="text-muted-foreground text-sm md:text-base">
-                  {edge.description}
-                </p>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {edges.map((edge, index) => {
+            const Icon = edge.icon;
+            return (
+              <div
+                key={index}
+                className="group p-8 rounded-3xl bg-card border border-border hover:border-primary/50 transition-all duration-300"
+              >
+                <Icon className="w-12 h-12 text-primary mb-6" strokeWidth={1.5} />
+                <h3 className="text-xl font-semibold mb-4">{edge.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{edge.description}</p>
               </div>
-
-              {/* Decorative glow effect */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity -z-10 blur-xl" />
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
