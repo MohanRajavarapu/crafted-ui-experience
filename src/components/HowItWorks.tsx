@@ -20,9 +20,9 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section id="how-it-works" className="py-12 md:py-16 lg:py-20 px-6 md:px-16 lg:px-24 bg-card/20">
+    <section id="how-it-works" className="py-8 md:py-10 lg:py-12 px-6 md:px-16 lg:px-24 bg-card/20">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-10 md:mb-12 space-y-3">
+        <div className="text-center mb-8 md:mb-10 space-y-3">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
             Simple. Powerful. Effective.
           </h2>
@@ -31,7 +31,7 @@ const HowItWorks = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-12 md:gap-16">
+        <div className="grid md:grid-cols-3 gap-8 md:gap-10">
           {steps.map((step, index) => {
             const Icon = step.icon;
             return (

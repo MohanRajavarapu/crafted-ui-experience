@@ -3,9 +3,11 @@ import { ArrowRight } from "lucide-react";
 import logo from "@/assets/logo.png";
 import { useState } from "react";
 import CaseStudiesDialog from "./CaseStudiesDialog";
+import ContactDialog from "./ContactDialog";
 
 const Hero = () => {
   const [showCaseStudies, setShowCaseStudies] = useState(false);
+  const [showContact, setShowContact] = useState(false);
 
   return (
     <section className="relative min-h-screen flex flex-col bg-background overflow-hidden">
@@ -32,6 +34,7 @@ const Hero = () => {
         <div className="flex items-center gap-4">
           <Button
             size="lg"
+            onClick={() => setShowContact(true)}
             className="hidden md:flex bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
           >
             Request Demo
@@ -76,6 +79,7 @@ const Hero = () => {
       </div>
 
       <CaseStudiesDialog open={showCaseStudies} onOpenChange={setShowCaseStudies} />
+      <ContactDialog open={showContact} onOpenChange={setShowContact} />
     </section>
   );
 };
