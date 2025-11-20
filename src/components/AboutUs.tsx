@@ -29,7 +29,7 @@ const AboutUs = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-8 md:mb-10 space-y-3">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
-            About <span className="text-gradient">360 VortexAI</span>
+            About<span className="text-gradient">360 VortexAI</span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             We are pioneers in AI-powered supply chain optimization, helping businesses make smarter decisions through predictive analytics and demand forecasting. Founded by industry experts, we combine deep supply chain knowledge with advanced machine learning to deliver unparalleled accuracy and actionable insights.
