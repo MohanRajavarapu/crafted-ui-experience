@@ -1,8 +1,12 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Menu } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import logo from "@/assets/logo.png";
+import { useState } from "react";
+import CaseStudiesDialog from "./CaseStudiesDialog";
 
 const Hero = () => {
+  const [showCaseStudies, setShowCaseStudies] = useState(false);
+
   return (
     <section className="relative min-h-screen flex flex-col bg-background overflow-hidden">
       {/* Subtle background gradient */}
@@ -17,8 +21,9 @@ const Hero = () => {
           
           {/* Desktop Navigation Links */}
           <div className="hidden lg:flex items-center gap-8">
-            <a href="#solutions" className="text-foreground hover:text-primary transition-colors font-medium">Solutions</a>
+            <a href="#about" className="text-foreground hover:text-primary transition-colors font-medium">About Us</a>
             <a href="#how-it-works" className="text-foreground hover:text-primary transition-colors font-medium">How It Works</a>
+            <a href="#solutions" className="text-foreground hover:text-primary transition-colors font-medium">Solutions</a>
             <a href="#impact" className="text-foreground hover:text-primary transition-colors font-medium">Impact</a>
             <a href="#contact" className="text-foreground hover:text-primary transition-colors font-medium">Contact</a>
           </div>
@@ -50,6 +55,7 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
             <Button
               size="lg"
+              onClick={() => setShowCaseStudies(true)}
               className="bg-primary hover:bg-primary/90 text-primary-foreground text-base px-6 py-4 h-auto font-semibold"
             >
               Get Started Free
@@ -58,13 +64,18 @@ const Hero = () => {
             <Button
               size="lg"
               variant="outline"
+              asChild
               className="border-2 border-border text-foreground hover:bg-card text-base px-6 py-4 h-auto font-semibold"
             >
-              Watch Demo
+              <a href="https://www.youtube.com/watch?v=Lpp9bHtPAN0" target="_blank" rel="noopener noreferrer">
+                Watch Demo
+              </a>
             </Button>
           </div>
         </div>
       </div>
+
+      <CaseStudiesDialog open={showCaseStudies} onOpenChange={setShowCaseStudies} />
     </section>
   );
 };

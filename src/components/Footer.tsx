@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer id="contact" className="bg-card/50">
       {/* CTA Section */}
-      <div className="px-6 md:px-16 lg:px-24 py-16 md:py-20 lg:py-24">
+      <div className="px-6 md:px-16 lg:px-24 py-12 md:py-16 lg:py-20">
         <div className="max-w-5xl mx-auto text-center space-y-10">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight">
             Ready to Transform Your Supply Chain?
@@ -14,27 +14,25 @@ const Footer = () => {
           <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto">
             Join hundreds of companies making smarter decisions with AI
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+          <div className="flex justify-center pt-4">
             <Button
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground text-base px-6 py-4 h-auto font-semibold"
+              asChild
+              className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-10 py-6 h-auto font-semibold"
             >
-              Get Started Free
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-2 border-border text-foreground hover:bg-card text-base px-6 py-4 h-auto font-semibold"
-            >
-              Schedule Demo
+              <a href="#contact">Contact Us</a>
             </Button>
           </div>
         </div>
       </div>
 
+      {/* Divider */}
+      <div className="px-6 md:px-16 lg:px-24">
+        <div className="max-w-7xl mx-auto border-t border-border/50" />
+      </div>
+
       {/* Footer Content */}
-      <div className="px-6 md:px-16 lg:px-24 py-16">
+      <div className="px-6 md:px-16 lg:px-24 py-12">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-4 gap-12 mb-16">
             <div className="space-y-6">
@@ -64,16 +62,15 @@ const Footer = () => {
               <h3 className="font-semibold text-lg mb-6">Product</h3>
               <ul className="space-y-4 text-muted-foreground">
                 <li><a href="#solutions" className="hover:text-primary transition-colors">Solutions</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Pricing</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Case Studies</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">API Docs</a></li>
+                <li><a href="#how-it-works" className="hover:text-primary transition-colors">How It Works</a></li>
+                <li><a href="#impact" className="hover:text-primary transition-colors">Impact</a></li>
               </ul>
             </div>
 
             <div>
               <h3 className="font-semibold text-lg mb-6">Company</h3>
               <ul className="space-y-4 text-muted-foreground">
-                <li><a href="#" className="hover:text-primary transition-colors">About Us</a></li>
+                <li><a href="#about" className="hover:text-primary transition-colors">About Us</a></li>
                 <li><a href="#" className="hover:text-primary transition-colors">Careers</a></li>
                 <li><a href="#contact" className="hover:text-primary transition-colors">Contact</a></li>
               </ul>
