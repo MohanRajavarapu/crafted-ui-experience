@@ -12,6 +12,12 @@ const Index = () => {
       <AboutUs />
       <HowItWorks />
       <OurEdge />
+      <div className="text-center py-12 md:py-16 px-6 md:px-16 lg:px-24">
+        <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
+          Transform Your Supply Chain{" "}
+          <span className="text-gradient">with AI</span>
+        </h2>
+      </div>
       <ImpactSection />
       <Footer />
     </div>

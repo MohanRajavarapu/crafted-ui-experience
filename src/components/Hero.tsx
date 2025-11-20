@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/Logo.png";
 import { useState } from "react";
 import CaseStudiesDialog from "./CaseStudiesDialog";
 import ContactDialog from "./ContactDialog";
@@ -18,7 +18,7 @@ const Hero = () => {
       <nav className="relative z-10 flex items-center justify-between px-6 md:px-16 lg:px-24 py-6 border-b border-border/50">
         <div className="flex items-center gap-12">
           <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="cursor-pointer">
-            <img src={logo} alt="360 VortexAI" className="h-28 md:h-32 lg:h-40 w-auto p-2 rounded-lg" style={{ background: 'transparent' }} />
+            <img src={logo} alt="360 VortexAI" className="h-28 md:h-32 lg:h-40 w-auto p-2 rounded-lg" style={{ background: 'transparent', height: '50%' }} />
           </a>
           
           {/* Desktop Navigation Links */}
@@ -46,11 +46,6 @@ const Hero = () => {
       {/* Hero Content */}
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-6 md:px-16 lg:px-24 py-20 md:py-32">
         <div className="max-w-6xl mx-auto text-center space-y-8 animate-fade-in">
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
-            Transform Your Supply Chain{" "}
-            <span className="text-gradient">with AI</span>
-          </h1>
-
           <p className="text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Stop guessing. Start predicting. AI-powered demand forecasting that optimizes inventory, reduces waste, and drives growth.
           </p>
@@ -61,7 +56,7 @@ const Hero = () => {
               onClick={() => setShowCaseStudies(true)}
               className="bg-primary hover:bg-primary/90 text-primary-foreground text-base px-6 py-4 h-auto font-semibold"
             >
-              Get Started Free
+              Case Studies
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             <Button

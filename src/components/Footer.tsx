@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Linkedin, Twitter, Mail, Facebook } from "lucide-react";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/Logo.png";
 import { useState } from "react";
 import ContactDialog from "./ContactDialog";
 
@@ -41,7 +41,7 @@ const Footer = () => {
           <div className="grid md:grid-cols-4 gap-12 mb-16">
             <div className="space-y-6">
               <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="cursor-pointer inline-block">
-                <img src={logo} alt="360 VortexAI" className="h-24 w-auto p-2 rounded-lg" style={{ background: 'transparent' }} />
+                <img src={logo} alt="360 VortexAI" className="h-24 w-auto p-2 rounded-lg" style={{ background: 'transparent', height: '50%' }} />
               </a>
               <p className="text-muted-foreground leading-relaxed">
                 AI-powered demand forecasting and supply chain optimization for modern businesses
