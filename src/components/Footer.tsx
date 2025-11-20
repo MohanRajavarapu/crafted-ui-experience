@@ -1,8 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Linkedin, Twitter, Mail, Facebook } from "lucide-react";
 import logo from "@/assets/logo.png";
+import { useState } from "react";
+import ContactDialog from "./ContactDialog";
 
 const Footer = () => {
+  const [showContact, setShowContact] = useState(false);
+
   return (
     <footer id="contact" className="bg-card/50">
       {/* CTA Section */}
@@ -17,10 +21,10 @@ const Footer = () => {
           <div className="flex justify-center pt-4">
             <Button
               size="lg"
-              asChild
+              onClick={() => setShowContact(true)}
               className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-10 py-6 h-auto font-semibold"
             >
-              <a href="#contact">Contact Us</a>
+              Contact Us
             </Button>
           </div>
         </div>
@@ -97,6 +101,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
+
+      <ContactDialog open={showContact} onOpenChange={setShowContact} />
     </footer>
   );
 };
