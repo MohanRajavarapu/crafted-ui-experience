@@ -20,9 +20,9 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section id="how-it-works" className="py-16 md:py-24 lg:py-32 px-6 md:px-16 lg:px-24 bg-card/20">
+    <section id="how-it-works" className="py-12 md:py-16 lg:py-20 px-6 md:px-16 lg:px-24 bg-card/20">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12 md:mb-16 space-y-4">
+        <div className="text-center mb-10 md:mb-12 space-y-3">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
             Simple. Powerful. Effective.
           </h2>
