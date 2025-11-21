@@ -29,7 +29,7 @@ const Hero = () => {
             <img 
               src={logo} 
               alt="360 VortexAI" 
-              className="h-14 md:h-16 lg:h-20 w-auto" 
+              className="h-18 md:h-24 lg:h-30 w-auto" 
               style={{ background: 'transparent' }} 
             />
           </a>
