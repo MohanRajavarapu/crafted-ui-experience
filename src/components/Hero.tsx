@@ -35,7 +35,7 @@ const Hero = () => {
           </a>
           
           {/* Desktop Navigation Links */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="lg:flex items-center gap-8">
             <a href="#about" className="text-foreground hover:text-primary transition-colors font-medium text-sm">
               About Us
             </a>
