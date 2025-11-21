@@ -2,6 +2,7 @@ import Hero from "@/components/Hero";
 import AboutUs from "@/components/AboutUs";
 import HowItWorks from "@/components/HowItWorks";
 import OurEdge from "@/components/OurEdge";
+import HeroContent from "@/components/HeroContent";
 import ImpactSection from "@/components/ImpactSection";
 import Footer from "@/components/Footer";
 
@@ -18,6 +19,7 @@ const Index = () => {
           <span className="text-gradient">with AI</span>
         </h2>
       </div>
+      <HeroContent />
       <ImpactSection />
       <Footer />
     </div>
