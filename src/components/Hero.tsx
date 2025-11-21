@@ -18,7 +18,7 @@ const Hero = () => {
       <nav className="relative z-10 flex items-center justify-between px-6 md:px-16 lg:px-24 py-6 border-b border-border/50">
         <div className="flex items-center gap-12">
           <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="cursor-pointer">
-            <img src={logo} alt="360 VortexAI" className="h-28 md:h-32 lg:h-40 w-auto p-2 rounded-lg" style={{ background: 'transparent', height: '50%' }} />
+            <img src={logo} alt="360 VortexAI" className="h-12 md:h-14 lg:h-16 w-auto" style={{ background: 'transparent' }} />
           </a>
           
           {/* Desktop Navigation Links */}
@@ -35,7 +35,7 @@ const Hero = () => {
           <Button
             size="lg"
             onClick={() => setShowContact(true)}
-            className="hidden md:flex bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+            className="hidden md:flex bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6"
           >
             Request Demo
             <ArrowRight className="ml-2 h-4 w-4" />
