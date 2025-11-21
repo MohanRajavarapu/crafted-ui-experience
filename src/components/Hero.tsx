@@ -10,7 +10,7 @@ const Hero = () => {
   const [showContact, setShowContact] = useState(false);
 
   return (
-    <section className="relative min-h-screen flex flex-col bg-background overflow-hidden">
+    <section className="relative flex flex-col bg-background overflow-hidden">
       {/* Subtle background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-card/30" />
 
