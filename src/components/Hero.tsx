@@ -30,7 +30,7 @@ const Hero = () => {
               src={logo}
               alt="360 VortexAI"
               className="h-28 md:h-36 lg:h-44 w-auto"
-              className="bg-slate-950 p-2.5 rounded-lg"
+              style={{ background: 'hsl(210 30% 8%)', padding: '10px', borderRadius: '12px' }}        
             />
           </a>
           
