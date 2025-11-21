@@ -26,11 +26,11 @@ const Hero = () => {
             }} 
             className="cursor-pointer flex-shrink-0"
           >
-            <img 
-              src={logo} 
-              alt="360 VortexAI" 
-              className="h-18 md:h-24 lg:h-30 w-auto" 
-              style={{ background: 'transparent' }} 
+            <img
+              src={logo}
+              alt="360 VortexAI"
+              className="h-28 md:h-36 lg:h-44 w-auto"
+              style={{ background: 'hsl(210 30% 8%)', padding: '10px', borderRadius: '12px' }}
             />
           </a>
           
