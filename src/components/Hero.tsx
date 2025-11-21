@@ -18,7 +18,7 @@ const Hero = () => {
       <nav className="relative z-10 flex items-center justify-between px-6 md:px-16 lg:px-24 py-6 border-b border-border/50">
         <div className="flex items-center gap-12">
           <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="cursor-pointer">
-            <img src={logo} alt="360 VortexAI" className="h-12 md:h-14 lg:h-16 w-auto" style={{ background: 'transparent' }} />
+            <img src={logo} alt="360 VortexAI" className="h-16 md:h-20 lg:h-24 w-auto" style={{ background: 'transparent' }} />
           </a>
           
           {/* Desktop Navigation Links */}
