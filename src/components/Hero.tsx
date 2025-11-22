@@ -2,12 +2,14 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import logo from "@/assets/Logo.png";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import CaseStudiesDialog from "./CaseStudiesDialog";
 import ContactDialog from "./ContactDialog";
 
 const Hero = () => {
   const [showCaseStudies, setShowCaseStudies] = useState(false);
   const [showContact, setShowContact] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <section className="relative flex flex-col bg-background overflow-hidden">
@@ -54,8 +56,16 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Right Section - CTA Button */}
-        <div className="flex-shrink-0 ml-4">
+        {/* Right Section - CTA Buttons */}
+        <div className="flex-shrink-0 ml-4 flex items-center gap-3">
+          <Button
+            size="lg"
+            variant="outline"
+            onClick={() => navigate('/auth')}
+            className="font-semibold px-5 md:px-6 py-2 h-auto text-sm md:text-base"
+          >
+            Sign In
+          </Button>
           <Button
             size="lg"
             onClick={() => setShowContact(true)}
