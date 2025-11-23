@@ -1,19 +1,16 @@
-import { createClient } from '@supabase/supabase-js';
-import type { Database } from './types';
+// src/integrations/supabase/client.ts
 
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
-const SUPABASE_PUBLISHABLE_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
+import { createClient } from "@supabase/supabase-js";
 
-if (!SUPABASE_URL || !SUPABASE_PUBLISHABLE_KEY) {
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+if (!supabaseUrl || !supabaseAnonKey) {
   throw new Error(
-    'Missing Supabase environment variables. Please ensure VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY are set in your .env file.'
+    "Missing Supabase environment variables. Please ensure the following are set in your .env file:\n" +
+    "  • VITE_SUPABASE_URL\n" +
+    "  • VITE_SUPABASE_ANON_KEY"
   );
 }
 
-export const supabase = createClient<Database>(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
-  auth: {
-    storage: localStorage,
-    persistSession: true,
-    autoRefreshToken: true,
-  }
-});
+export const supabase = createClient(supabaseUrl, supabaseAnonKey);
