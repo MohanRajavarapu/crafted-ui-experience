@@ -14,6 +14,7 @@ import { z } from 'zod';
 const emailSchema = z.string().email('Invalid email address');
 const passwordSchema = z.string().min(6, 'Password must be at least 6 characters');
 const nameSchema = z.string().min(2, 'Name must be at least 2 characters');
+const mobileSchema = z.string().min(10, 'Mobile number must be at least 10 digits').max(15, 'Mobile number must be less than 15 digits').regex(/^[0-9+\-() ]+$/, 'Invalid mobile number format');
 
 const Auth = () => {
   const { signIn, signUp, user } = useAuth();
@@ -70,12 +71,14 @@ const Auth = () => {
     const formData = new FormData(e.currentTarget);
     const fullName = formData.get('signup-name') as string;
     const email = formData.get('signup-email') as string;
+    const mobile = formData.get('signup-mobile') as string;
     const password = formData.get('signup-password') as string;
     const confirmPassword = formData.get('signup-confirm-password') as string;
 
     try {
       nameSchema.parse(fullName);
       emailSchema.parse(email);
+      mobileSchema.parse(mobile);
       passwordSchema.parse(password);
 
       if (password !== confirmPassword) {
@@ -88,7 +91,7 @@ const Auth = () => {
         return;
       }
 
-      const { error } = await signUp(email, password, fullName);
+      const { error } = await signUp(email, password, fullName, mobile);
 
       if (error) {
         toast({
@@ -195,6 +198,17 @@ const Auth = () => {
                     name="signup-email"
                     type="email"
                     placeholder="analyst@company.com"
+                    required
+                    disabled={loading}
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="signup-mobile">Mobile Number</Label>
+                  <Input
+                    id="signup-mobile"
+                    name="signup-mobile"
+                    type="tel"
+                    placeholder="+1 234 567 8900"
                     required
                     disabled={loading}
                   />

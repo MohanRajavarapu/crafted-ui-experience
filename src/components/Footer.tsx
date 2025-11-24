@@ -94,9 +94,9 @@ const Footer = () => {
           <div className="pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-4 text-muted-foreground">
             <p>&copy; 2024 360 VortexAI. All rights reserved.</p>
             <div className="flex gap-8">
-              <a href="#" className="hover:text-primary transition-colors">Privacy</a>
-              <a href="#" className="hover:text-primary transition-colors">Terms</a>
-              <a href="#" className="hover:text-primary transition-colors">Cookies</a>
+              <a href="/privacy" className="hover:text-primary transition-colors">Privacy</a>
+              <a href="/terms" className="hover:text-primary transition-colors">Terms</a>
+              <a href="/cookies" className="hover:text-primary transition-colors">Cookies</a>
             </div>
           </div>
         </div>

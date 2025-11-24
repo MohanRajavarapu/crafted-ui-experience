@@ -1,10 +1,11 @@
-import { useState } from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { useState, useEffect } from "react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
+import { useAuth } from "@/contexts/AuthContext";
 import { z } from "zod";
 
 const contactSchema = z.object({
@@ -21,10 +22,26 @@ interface ContactDialogProps {
 type Step = "form" | "otp" | "success" | "error";
 
 const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
+  const { user } = useAuth();
   const [step, setStep] = useState<Step>("form");
   const [formData, setFormData] = useState({ name: "", email: "", mobile: "" });
   const [otp, setOtp] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    if (user) {
+      setIsAuthenticated(true);
+      setFormData({
+        name: user.user_metadata?.full_name || "",
+        email: user.email || "",
+        mobile: user.user_metadata?.mobile || "",
+      });
+    } else {
+      setIsAuthenticated(false);
+      setFormData({ name: "", email: "", mobile: "" });
+    }
+  }, [user, open]);
 
   const handleInputChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
@@ -40,6 +57,12 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
   };
 
   const handleSendOTP = async () => {
+    // If user is authenticated, skip OTP and directly submit
+    if (isAuthenticated) {
+      await handleDirectSubmit();
+      return;
+    }
+
     try {
       setIsLoading(true);
       const validatedData = contactSchema.parse(formData);
@@ -57,6 +80,33 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
       toast({
         title: "Error",
         description: error.message || "Failed to send OTP. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleDirectSubmit = async () => {
+    try {
+      setIsLoading(true);
+      const { error } = await supabase
+        .from("contact_submissions")
+        .insert([formData]);
+
+      if (error) throw error;
+
+      toast({ title: "Your request has been submitted successfully!" });
+      setStep("success");
+      setTimeout(() => {
+        onOpenChange(false);
+        resetForm();
+      }, 3000);
+    } catch (error: any) {
+      console.error("Error submitting:", error);
+      toast({
+        title: "Error",
+        description: error.message || "Failed to submit request. Please try again.",
         variant: "destructive",
       });
     } finally {
@@ -121,6 +171,13 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
             {step === "success" && "Success"}
             {step === "error" && "Invalid OTP"}
           </DialogTitle>
+          {step === "form" && (
+            <DialogDescription>
+              {isAuthenticated 
+                ? "Review your details and submit your demo request."
+                : "Fill in your details to get started with our AI forecasting platform."}
+            </DialogDescription>
+          )}
         </DialogHeader>
 
         <div className="space-y-6 py-4">
@@ -133,6 +190,7 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
                   placeholder="Enter your name"
                   value={formData.name}
                   onChange={(e) => handleInputChange("name", e.target.value)}
+                  disabled={isAuthenticated}
                 />
               </div>
               <div className="space-y-2">
@@ -143,6 +201,7 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
                   placeholder="Enter your email"
                   value={formData.email}
                   onChange={(e) => handleInputChange("email", e.target.value)}
+                  disabled={isAuthenticated}
                 />
               </div>
               <div className="space-y-2">
@@ -153,6 +212,7 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
                   placeholder="+1234567890"
                   value={formData.mobile}
                   onChange={(e) => handleInputChange("mobile", e.target.value)}
+                  disabled={isAuthenticated}
                 />
               </div>
               <Button
@@ -160,7 +220,7 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
                 disabled={!isFormValid() || isLoading}
                 className="w-full"
               >
-                {isLoading ? "Sending..." : "Send OTP to Email"}
+                {isLoading ? "Submitting..." : isAuthenticated ? "Submit Request" : "Send OTP to Email"}
               </Button>
             </>
           )}
