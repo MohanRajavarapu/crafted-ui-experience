@@ -10,6 +10,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Loader2 } from 'lucide-react';
 import logo from '@/assets/Logo.png';
 import { z } from 'zod';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 const emailSchema = z.string().email('Invalid email address');
 const passwordSchema = z.string().min(6, 'Password must be at least 6 characters');
@@ -71,7 +72,9 @@ const Auth = () => {
     const formData = new FormData(e.currentTarget);
     const fullName = formData.get('signup-name') as string;
     const email = formData.get('signup-email') as string;
-    const mobile = formData.get('signup-mobile') as string;
+    const countryCode = formData.get('country-code') as string;
+    const mobileNumber = formData.get('signup-mobile') as string;
+    const mobile = `${countryCode}${mobileNumber}`;
     const password = formData.get('signup-password') as string;
     const confirmPassword = formData.get('signup-confirm-password') as string;
 
@@ -204,14 +207,34 @@ const Auth = () => {
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="signup-mobile">Mobile Number</Label>
-                  <Input
-                    id="signup-mobile"
-                    name="signup-mobile"
-                    type="tel"
-                    placeholder="+1 234 567 8900"
-                    required
-                    disabled={loading}
-                  />
+                  <div className="flex gap-2">
+                    <Select name="country-code" defaultValue="+1">
+                      <SelectTrigger className="w-[120px]">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="+1">🇺🇸 +1</SelectItem>
+                        <SelectItem value="+44">🇬🇧 +44</SelectItem>
+                        <SelectItem value="+91">🇮🇳 +91</SelectItem>
+                        <SelectItem value="+86">🇨🇳 +86</SelectItem>
+                        <SelectItem value="+81">🇯🇵 +81</SelectItem>
+                        <SelectItem value="+49">🇩🇪 +49</SelectItem>
+                        <SelectItem value="+33">🇫🇷 +33</SelectItem>
+                        <SelectItem value="+61">🇦🇺 +61</SelectItem>
+                        <SelectItem value="+55">🇧🇷 +55</SelectItem>
+                        <SelectItem value="+82">🇰🇷 +82</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <Input
+                      id="signup-mobile"
+                      name="signup-mobile"
+                      type="tel"
+                      placeholder="234 567 8900"
+                      required
+                      disabled={loading}
+                      className="flex-1"
+                    />
+                  </div>
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="signup-password">Password</Label>
