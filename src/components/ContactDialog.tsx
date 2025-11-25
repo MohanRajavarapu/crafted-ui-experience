@@ -7,6 +7,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
 import { useAuth } from "@/contexts/AuthContext";
 import { z } from "zod";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
@@ -25,6 +26,7 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
   const { user } = useAuth();
   const [step, setStep] = useState<Step>("form");
   const [formData, setFormData] = useState({ name: "", email: "", mobile: "" });
+  const [countryCode, setCountryCode] = useState("+1");
   const [otp, setOtp] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -206,14 +208,38 @@ const ContactDialog = ({ open, onOpenChange }: ContactDialogProps) => {
               </div>
               <div className="space-y-2">
                 <Label htmlFor="mobile">Mobile Number</Label>
-                <Input
-                  id="mobile"
-                  type="tel"
-                  placeholder="+1234567890"
-                  value={formData.mobile}
-                  onChange={(e) => handleInputChange("mobile", e.target.value)}
-                  disabled={isAuthenticated}
-                />
+                <div className="flex gap-2">
+                  <Select 
+                    value={countryCode} 
+                    onValueChange={setCountryCode}
+                    disabled={isAuthenticated}
+                  >
+                    <SelectTrigger className="w-[120px]">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="+1">🇺🇸 +1</SelectItem>
+                      <SelectItem value="+44">🇬🇧 +44</SelectItem>
+                      <SelectItem value="+91">🇮🇳 +91</SelectItem>
+                      <SelectItem value="+86">🇨🇳 +86</SelectItem>
+                      <SelectItem value="+81">🇯🇵 +81</SelectItem>
+                      <SelectItem value="+49">🇩🇪 +49</SelectItem>
+                      <SelectItem value="+33">🇫🇷 +33</SelectItem>
+                      <SelectItem value="+61">🇦🇺 +61</SelectItem>
+                      <SelectItem value="+55">🇧🇷 +55</SelectItem>
+                      <SelectItem value="+82">🇰🇷 +82</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <Input
+                    id="mobile"
+                    type="tel"
+                    placeholder="234567890"
+                    value={formData.mobile.replace(/^\+\d+/, '')}
+                    onChange={(e) => handleInputChange("mobile", `${countryCode}${e.target.value}`)}
+                    disabled={isAuthenticated}
+                    className="flex-1"
+                  />
+                </div>
               </div>
               <Button
                 onClick={handleSendOTP}

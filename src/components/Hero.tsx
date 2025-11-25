@@ -58,18 +58,10 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Right Section - CTA Buttons */}
+        {/* Right Section - CTA Button */}
         <div className="flex-shrink-0 ml-4 flex items-center gap-3">
-          {/* Desktop Buttons */}
+          {/* Desktop Button */}
           <div className="hidden md:flex items-center gap-3">
-            <Button
-              size="lg"
-              variant="outline"
-              onClick={() => navigate('/auth')}
-              className="font-semibold px-5 md:px-6 py-2 h-auto text-sm md:text-base"
-            >
-              Sign In
-            </Button>
             <Button
               size="lg"
               onClick={() => setShowContact(true)}
@@ -125,17 +117,6 @@ const Hero = () => {
                   Contact
                 </a>
                 <div className="flex flex-col gap-3 mt-4 pt-4 border-t border-border">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    onClick={() => {
-                      navigate('/auth');
-                      setMobileMenuOpen(false);
-                    }}
-                    className="w-full font-semibold"
-                  >
-                    Sign In
-                  </Button>
                   <Button
                     size="lg"
                     onClick={() => {
